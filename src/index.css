@@ -114,3 +114,45 @@ textarea:focus,
 input:focus {
   outline: lightgray solid 1px;
 }
+
+.containerForComment {
+  display: grid;
+  grid-template-columns: 0.3fr 2.3fr 0.4fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'avatarForComment textBox submitButton'
+    '. textBox .'
+    '. textBox .';
+}
+
+.avatarForComment {
+  grid-area: avatarForComment;
+}
+
+.textBox {
+  grid-area: textBox;
+}
+
+.submitButton {
+  grid-area: submitButton;
+}
+.containerForComment textarea {
+  height: 80px;
+  padding: 5px;
+  width: 400px;
+}
+
+.containerForComment button {
+  width: 100%;
+  height: fit-content;
+  padding: 10px 20px;
+  background-color: hsl(238, 40%, 52%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  grid-area: reply;
+}

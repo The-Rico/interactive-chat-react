@@ -1,4 +1,5 @@
 import Messagebox from './components/Messagebox.js';
+import Addcomment from './components/Addcomment.js';
 import './index.css';
 import data from './data.json';
 
@@ -41,6 +42,7 @@ function App(props) {
         active={data.comments[1].replies[1].createdAt}
       />
       <br />
+      <Addcomment />
     </div>
   );
 }
