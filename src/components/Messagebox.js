@@ -1,37 +1,44 @@
+import { useState } from 'react';
+
 import plus from '../images/icon-plus.svg';
 import subtract from '../images/icon-minus.svg';
 import icondelete from '../images/icon-delete.svg';
 import reply from '../images/icon-reply.svg';
-import avataramy from '../images/avatars/image-amyrobson.png';
 
-function Messagebox() {
+function Messagebox(props) {
+  const [score, setScore] = useState(0);
+
   return (
     <div>
-      <div class='gridcontainer'>
+      <div className='gridcontainer'>
         <div className='votebox'>
-          <div class='plus'>
-            <img src={plus}></img>
+          <div onClick={() => setScore(score + 1)} className='plus'>
+            <img alt='add' src={plus}></img>
           </div>
-          <div class='num'>6</div>
-          <div class='subtract'>
-            <img src={subtract}></img>
+          <div className='num'>{props.score}</div>
+          <div onClick={() => setScore(score - 1)} className='subtract'>
+            <img alt='subtract' src={subtract}></img>
           </div>
         </div>
-        <div class='avatar'>
-          {' '}
-          <img height='30px' src={avataramy}></img>
+        <div className='avatar'>
+          <img alt='avatar' height='30px' src={props.avatar}></img>
         </div>
-        <div class='name'>Amy Robson</div>
-        <div class='posttime'>3 weeks ago</div>
-        <div class='reply'>
-          {' '}
-          <img src={reply}></img>
+        <div className='name'>{props.username}</div>
+        <div className='posttime'>{props.active}</div>
+        <div className='reply'>
+          <img alt='reply' src={reply}></img> Reply
         </div>
-        <div class='textarea'>
-          <textarea></textarea>
+        <div className='textarea'>
+          <textarea
+            value={props.textarea}
+            maxLength='200'
+            rows='4'
+            placeholder='Add a comment...'
+            disabled={props.disabled}
+          ></textarea>
         </div>
-        <div class='editdelete'>
-          <img src={icondelete}></img>
+        <div className='editdelete'>
+          <img alt='delete' src={icondelete}></img>
         </div>
       </div>
     </div>

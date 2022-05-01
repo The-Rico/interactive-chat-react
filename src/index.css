@@ -9,20 +9,22 @@ body {
 }
 
 .container {
-  margin-top: 8em;
+  margin-top: 4em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .gridcontainer {
-  border: 2px solid black;
+  padding: 20px;
   display: flex;
   background-color: white;
   border-radius: 10px;
   width: 600px;
-  height: 150px;
+  height: 110px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 0.5fr 0.2fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -41,16 +43,25 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
+  background-color: hsl(223, 19%, 93%);
+  border-radius: 5px;
+  width: 30px;
+  padding: 3px;
+  position: relative;
+  bottom: 1em;
 }
 .num {
   grid-area: num;
+  cursor: pointer;
 }
 
 .plus {
   grid-area: plus;
+  cursor: pointer;
 }
 
 .subtract {
+  cursor: pointer;
   grid-area: subtract;
 }
 
@@ -79,16 +90,27 @@ body {
   grid-area: editdelete;
 }
 textarea {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 1px;
+  margin-left: 1px;
   border: none;
-  overflow: auto;
-  outline: none;
+  overflow: hidden;
+  /* outline: lightgray solid 1px; */
+  /* outline: none; */
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
   resize: none; /*remove the resize handle on the bottom right*/
-  padding: 5px 10px;
+  padding: 5px 0px;
   resize: none;
   font-family: 'Rubik', sans-serif;
-  min-height: 10px;
-  line-height: 26px;
+  height: 60px;
+  width: 520px;
+  line-height: 20px;
+}
+textarea:focus,
+input:focus {
+  outline: lightgray solid 1px;
 }

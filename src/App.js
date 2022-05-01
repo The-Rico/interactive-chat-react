@@ -1,10 +1,46 @@
 import Messagebox from './components/Messagebox.js';
 import './index.css';
+import data from './data.json';
 
-function App() {
+function App(props) {
   return (
     <div className='container'>
-      <Messagebox />
+      <Messagebox
+        avatar={data.comments[0].user.image.png}
+        textarea={data.comments[0].content}
+        score={data.comments[0].score}
+        disabled={true}
+        username={data.comments[0].user.username}
+        active={data.comments[0].createdAt}
+      />
+      <br />
+      <Messagebox
+        avatar={data.comments[1].user.image.png}
+        textarea={data.comments[1].content}
+        score={data.comments[1].score}
+        disabled={true}
+        username={data.comments[1].user.username}
+        active={data.comments[1].createdAt}
+      />
+      <br />
+      <Messagebox
+        avatar={data.comments[1].replies[0].user.image.png}
+        textarea={data.comments[1].replies[0].content}
+        score={data.comments[1].replies[0].score}
+        disabled={true}
+        username={data.comments[1].replies[0].user.username}
+        active={data.comments[1].replies[0].createdAt}
+      />
+      <br />
+      <Messagebox
+        avatar={data.comments[1].replies[1].user.image.png}
+        textarea={data.comments[1].replies[1].content}
+        score={data.comments[1].replies[1].score}
+        disabled={true}
+        username={data.comments[1].replies[1].user.username}
+        active={data.comments[1].replies[1].createdAt}
+      />
+      <br />
     </div>
   );
 }
